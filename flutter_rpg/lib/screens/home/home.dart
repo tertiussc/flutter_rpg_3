@@ -19,10 +19,11 @@ class _HomeState extends State<Home> {
       body: Container(
         padding: EdgeInsets.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Character List'),
-            Text('Character list 3', style: Theme.of(context).textTheme.headlineMedium),
-            Text('Character list 2', style: Theme.of(context).textTheme.titleMedium),
+            Text('Character List 1'),
+            Text('Character list 2', style: Theme.of(context).textTheme.headlineMedium),
+            Text('Character list 3', style: Theme.of(context).textTheme.titleMedium),
             FilledButton(
               style: FilledButton.styleFrom(backgroundColor: AppColors.primaryColor),
               onPressed: () {},
