@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rpg/theme.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,7 +18,16 @@ class _HomeState extends State<Home> {
       ),
       body: Container(
         padding: EdgeInsets.all(16),
-        child: Text('Home'),
+        child: Column(
+          children: [
+            Text('Character List'),
+            FilledButton(
+              style: FilledButton.styleFrom(backgroundColor: AppColors.primaryColor),
+              onPressed: () {},
+              child: Text('Create new'),
+            )
+          ],
+        ),
       ),
     );
   }
