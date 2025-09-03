@@ -21,6 +21,8 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             Text('Character List'),
+            Text('Character list 3', style: Theme.of(context).textTheme.headlineMedium),
+            Text('Character list 2', style: Theme.of(context).textTheme.titleMedium),
             FilledButton(
               style: FilledButton.styleFrom(backgroundColor: AppColors.primaryColor),
               onPressed: () {},
