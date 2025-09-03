@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
 
 class Home extends StatefulWidget {
@@ -21,9 +22,9 @@ class _HomeState extends State<Home> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Character List 1'),
-            Text('Character list 2', style: Theme.of(context).textTheme.headlineMedium),
-            Text('Character list 3', style: Theme.of(context).textTheme.titleMedium),
+            StyledText('Character List 1'),
+            StyledHeading('Character list 2'),
+            StyledTitle('Character list 3'),
             FilledButton(
               style: FilledButton.styleFrom(backgroundColor: AppColors.primaryColor),
               onPressed: () {},
