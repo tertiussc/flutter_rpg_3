@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rpg/theme.dart';
 
 class CharacterCard extends StatelessWidget {
   const CharacterCard(this.character, {super.key});
@@ -10,7 +11,17 @@ class CharacterCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Row(
-          children: [Text(character)],
+          children: [
+            Text(character),
+            Expanded(child: SizedBox()),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.arrow_forward,
+                color: AppColors.textColor,
+              ),
+            )
+          ],
         ),
       ),
     );
