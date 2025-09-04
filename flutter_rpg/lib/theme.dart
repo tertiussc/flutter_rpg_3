@@ -45,4 +45,11 @@ ThemeData PrimaryTheme = ThemeData(
       letterSpacing: 2,
     ),
   ),
+  // Card Theme
+  cardTheme: CardThemeData(
+      color: AppColors.secondaryColor.withValues(alpha: 0.5),
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(),
+      shadowColor: Colors.transparent,
+      margin: EdgeInsets.only(bottom: 16)),
 );
