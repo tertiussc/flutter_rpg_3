@@ -11,6 +11,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+// Temporary list of characters
+  final List<String> characters = ['mario', 'luigi', 'peach', 'bowser', 'toad', 'bowser', 'koopa'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +25,18 @@ class _HomeState extends State<Home> {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            StyledText('Character List 1'),
-            StyledHeading('Character list 2'),
-            StyledTitle('Character list 3'),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: characters.length,
+                  itemBuilder: (_, index) {
+                    return Container(
+                      color: Colors.grey[800],
+                      padding: EdgeInsets.all(40),
+                      margin: EdgeInsets.only(bottom: 40),
+                      child: Text(characters[index]),
+                    );
+                  }),
+            ),
             StyledButton(
               onPressed: () {},
               child: StyledHeading('Create new'),
