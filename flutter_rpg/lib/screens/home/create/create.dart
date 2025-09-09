@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
 
@@ -35,7 +36,19 @@ class _CreateState extends State<Create> {
             ),
             SizedBox(
               height: 30,
-            )
+            ),
+            // Input form
+            TextField(
+              cursorColor: AppColors.textColor,
+              style: GoogleFonts.kanit(textStyle: Theme.of(context).textTheme.titleMedium),
+              decoration: InputDecoration(prefixIcon: Icon(Icons.person_2), label: StyledText('Character name')),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              cursorColor: AppColors.textColor,
+              style: GoogleFonts.kanit(textStyle: Theme.of(context).textTheme.titleMedium),
+              decoration: InputDecoration(prefixIcon: Icon(Icons.chat), label: StyledText('Character slogan')),
+            ),
           ],
         ),
       ),

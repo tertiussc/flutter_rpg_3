@@ -52,4 +52,13 @@ ThemeData PrimaryTheme = ThemeData(
       shape: RoundedRectangleBorder(),
       shadowColor: Colors.transparent,
       margin: EdgeInsets.only(bottom: 16)),
+
+  // Input decoration theme
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: AppColors.secondaryColor.withValues(alpha: 0.5),
+    border: InputBorder.none,
+    labelStyle: TextStyle(color: AppColors.textColor),
+    prefixIconColor: AppColors.textColor,
+  ),
 );
