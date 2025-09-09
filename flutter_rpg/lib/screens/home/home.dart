@@ -3,6 +3,8 @@ import 'package:flutter_rpg/screens/home/character_card.dart';
 import 'package:flutter_rpg/shared/styled_button.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 
+import '../../models/character.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -11,9 +13,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-// Temporary list of characters
-  final List<String> characters = ['mario', 'luigi', 'peach', 'bowser', 'toad', 'bowser', 'koopa'];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
