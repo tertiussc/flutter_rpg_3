@@ -40,6 +40,15 @@ class _CreateState extends State<Create> {
     print('Slogan: ${_sloganController.text}');
   }
 
+  // Handling vocation selection
+  Vocation selectedVocation = Vocation.junkie;
+
+  void updateVocation(Vocation vocation) {
+    setState(() {
+      selectedVocation = vocation;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,17 +103,26 @@ class _CreateState extends State<Create> {
                 child: StyledText('This determine you available skills.'),
               ),
               SizedBox(height: 30),
+
               // vocation cards
-              const VocationCard(
+              VocationCard(
+                selected: selectedVocation == Vocation.junkie,
+                onTap: updateVocation,
                 vocation: Vocation.junkie,
               ),
-              const VocationCard(
+              VocationCard(
+                selected: selectedVocation == Vocation.ninja,
+                onTap: updateVocation,
                 vocation: Vocation.ninja,
               ),
-              const VocationCard(
+              VocationCard(
+                selected: selectedVocation == Vocation.wizard,
+                onTap: updateVocation,
                 vocation: Vocation.wizard,
               ),
-              const VocationCard(
+              VocationCard(
+                selected: selectedVocation == Vocation.raider,
+                onTap: updateVocation,
                 vocation: Vocation.raider,
               ),
 
