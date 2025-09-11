@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rpg/models/character.dart';
 import 'package:flutter_rpg/models/vocation.dart';
 import 'package:flutter_rpg/screens/home/create/vocation_card.dart';
+import 'package:flutter_rpg/screens/home/home.dart';
 import 'package:flutter_rpg/shared/styled_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
@@ -34,11 +35,47 @@ class _CreateState extends State<Create> {
   // Submit handler
   void handleSubmit() {
     if (_nameController.text.trim().isEmpty) {
-      // show erro
+      // show error
+      showDialog(
+        context: context,
+        builder: (ctx) {
+          return AlertDialog(
+            title: StyledHeading('Must enter a character name'),
+            content: StyledText('Every good RPG character needs a great name!'),
+            actions: [
+              StyledButton(
+                  onPressed: () {
+                    // pop the alertbox from the stack
+                    Navigator.pop(ctx);
+                  },
+                  child: StyledHeading('Close'))
+            ],
+            actionsAlignment: MainAxisAlignment.center,
+          );
+        },
+      );
       return;
     }
     if (_sloganController.text.trim().isEmpty) {
-      // show erro
+      // show error
+      showDialog(
+        context: context,
+        builder: (ctx) {
+          return AlertDialog(
+            title: StyledHeading('Must enter a slogan.'),
+            content: StyledText('Remember to add a catchy slogan...'),
+            actions: [
+              StyledButton(
+                  onPressed: () {
+                    // pop the alertbox from the stack
+                    Navigator.pop(ctx);
+                  },
+                  child: StyledHeading('Close'))
+            ],
+            actionsAlignment: MainAxisAlignment.center,
+          );
+        },
+      );
       return;
     }
     // Add created character to list
@@ -50,6 +87,12 @@ class _CreateState extends State<Create> {
         id: uuid.v4(),
       ),
     );
+    // Navigate back to home screen
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Home(),
+        ));
   }
 
   // Handling vocation selection
@@ -149,7 +192,6 @@ class _CreateState extends State<Create> {
               Center(
                 child: StyledText('Enjoy the journey...'),
               ),
-              SizedBox(height: 30),
               SizedBox(height: 30),
               Center(
                 child: StyledButton(onPressed: handleSubmit, child: StyledHeading('Create Character')),

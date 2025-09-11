@@ -7,7 +7,7 @@ void main() {
   runApp(
     MaterialApp(
       theme: PrimaryTheme,
-      home: Create(),
+      home: Home(),
     ),
   );
 }
