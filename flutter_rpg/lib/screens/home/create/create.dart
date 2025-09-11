@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rpg/models/character.dart';
 import 'package:flutter_rpg/models/vocation.dart';
 import 'package:flutter_rpg/screens/home/create/vocation_card.dart';
 import 'package:flutter_rpg/shared/styled_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
+import 'package:uuid/uuid.dart';
+
+// Implement UUID
+var uuid = const Uuid();
 
 class Create extends StatefulWidget {
   const Create({super.key});
@@ -29,15 +34,22 @@ class _CreateState extends State<Create> {
   // Submit handler
   void handleSubmit() {
     if (_nameController.text.trim().isEmpty) {
-      print('Name must not be empty');
+      // show erro
       return;
     }
     if (_sloganController.text.trim().isEmpty) {
-      print('Slogan must not be empty');
+      // show erro
       return;
     }
-    print('Name: ${_nameController.text}');
-    print('Slogan: ${_sloganController.text}');
+    // Add created character to list
+    characters.add(
+      Character(
+        name: _nameController.text.trim(),
+        slogan: _sloganController.text.trim(),
+        vocation: selectedVocation,
+        id: uuid.v4(),
+      ),
+    );
   }
 
   // Handling vocation selection
@@ -125,7 +137,19 @@ class _CreateState extends State<Create> {
                 onTap: updateVocation,
                 vocation: Vocation.raider,
               ),
-
+              // good luck msg
+              Center(
+                  child: Icon(
+                Icons.code,
+                color: AppColors.primaryColor,
+              )),
+              Center(
+                child: StyledHeading('Good luck.'),
+              ),
+              Center(
+                child: StyledText('Enjoy the journey...'),
+              ),
+              SizedBox(height: 30),
               SizedBox(height: 30),
               Center(
                 child: StyledButton(onPressed: handleSubmit, child: StyledHeading('Create Character')),
