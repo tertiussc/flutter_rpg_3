@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rpg/models/character.dart';
+import 'package:flutter_rpg/screens/profile/stats_table.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
 
@@ -42,10 +43,45 @@ class Profile extends StatelessWidget {
                 ],
               ),
             ),
-
+            SizedBox(width: 20),
+            Center(
+              child: Icon(
+                Icons.code,
+                color: AppColors.primaryColor,
+              ),
+            ),
             // Weapon and ability
-
+            Padding(
+              padding: EdgeInsetsGeometry.all(16),
+              child: Container(
+                // This takes up all width
+                width: double.infinity, color: AppColors.secondaryColor.withValues(alpha: 0.5),
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const StyledHeading('Slogan'),
+                    StyledText(character.slogan),
+                    const SizedBox(height: 10),
+                    const StyledHeading('Weapon of choice'),
+                    StyledText(character.vocation.weapon),
+                    const SizedBox(height: 10),
+                    const StyledHeading('Unique Ability'),
+                    StyledText(character.vocation.ability),
+                    const SizedBox(height: 10),
+                  ],
+                ),
+              ),
+            ),
             // Stats & skills
+            Container(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  StatsTable(character),
+                ],
+              ),
+            )
 
             // Save button
           ],
