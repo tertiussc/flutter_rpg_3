@@ -11,6 +11,7 @@ class AppColors {
   static const Color highlightColor = Color.fromRGBO(212, 172, 13, 1);
 }
 
+// ignore: non_constant_identifier_names
 ThemeData PrimaryTheme = ThemeData(
     // Seed color
     colorScheme: ColorScheme.fromSeed(

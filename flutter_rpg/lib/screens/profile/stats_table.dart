@@ -35,8 +35,7 @@ class _StatsTableState extends State<StatsTable> {
                 StyledHeading(widget.character.points.toString()),
               ],
             ),
-          )
-
+          ),
           // Stats table
         ],
       ),
