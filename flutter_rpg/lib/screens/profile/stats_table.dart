@@ -39,51 +39,55 @@ class _StatsTableState extends State<StatsTable> {
           // Stats table
           Table(
               children: widget.character.statsAsList.map((stat) {
-            return TableRow(decoration: BoxDecoration(color: AppColors.secondaryColor.withValues(alpha: 0.5)), children: [
-              // stat title (e.g. health)
-              TableCell(
-                verticalAlignment: TableCellVerticalAlignment.middle,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: StyledHeading(stat['title']!),
+            return TableRow(
+                decoration: BoxDecoration(
+                  color: AppColors.secondaryColor.withValues(alpha: 0.5),
                 ),
-              ),
+                children: [
+                  // stat title (e.g. health)
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: StyledHeading(stat['title']!),
+                    ),
+                  ),
 
-              // stat value
-              TableCell(
-                verticalAlignment: TableCellVerticalAlignment.middle,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: StyledHeading(stat['value']!),
-                ),
-              ),
+                  // stat value
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: StyledHeading(stat['value']!),
+                    ),
+                  ),
 
-              // icon to increase stat
-              TableCell(
-                verticalAlignment: TableCellVerticalAlignment.middle,
-                child: IconButton(
-                  icon: Icon(Icons.arrow_upward, color: AppColors.textColor),
-                  onPressed: () {
-                    setState(() {
-                      widget.character.increaseStat(stat['title']!);
-                    });
-                  },
-                ),
-              ),
+                  // icon to increase stat
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_upward, color: AppColors.textColor),
+                      onPressed: () {
+                        setState(() {
+                          widget.character.increaseStat(stat['title']!);
+                        });
+                      },
+                    ),
+                  ),
 
-              // icon to decrease stat
-              TableCell(
-                verticalAlignment: TableCellVerticalAlignment.middle,
-                child: GestureDetector(
-                  child: Icon(Icons.arrow_downward, color: AppColors.textColor),
-                  onTap: () {
-                    setState(() {
-                      widget.character.decreaseStat(stat['title']!);
-                    });
-                  },
-                ),
-              ),
-            ]);
+                  // icon to decrease stat
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: GestureDetector(
+                      child: Icon(Icons.arrow_downward, color: AppColors.textColor),
+                      onTap: () {
+                        setState(() {
+                          widget.character.decreaseStat(stat['title']!);
+                        });
+                      },
+                    ),
+                  ),
+                ]);
           }).toList()),
         ],
       ),

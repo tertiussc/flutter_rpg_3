@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rpg/models/character.dart';
+import 'package:flutter_rpg/screens/profile/skill_list.dart';
 import 'package:flutter_rpg/screens/profile/stats_table.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
@@ -45,9 +46,12 @@ class Profile extends StatelessWidget {
             ),
             SizedBox(width: 20),
             Center(
-              child: Icon(
-                Icons.code,
-                color: AppColors.primaryColor,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Icon(
+                  Icons.code,
+                  color: AppColors.primaryColor,
+                ),
               ),
             ),
             // Weapon and ability
@@ -79,9 +83,10 @@ class Profile extends StatelessWidget {
               child: Column(
                 children: [
                   StatsTable(character),
+                  SkillList(character),
                 ],
               ),
-            )
+            ),
 
             // Save button
           ],
