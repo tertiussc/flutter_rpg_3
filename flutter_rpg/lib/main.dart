@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rpg/services/character_store.dart';
 import 'package:flutter_rpg/theme.dart';
+import 'package:provider/provider.dart';
 import 'screens/home/home.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      theme: PrimaryTheme,
-      home: Home(),
+    ChangeNotifierProvider(
+      create: (context) => CharacterStore(),
+      child: MaterialApp(
+        theme: PrimaryTheme,
+        home: Home(),
+      ),
     ),
   );
 }
