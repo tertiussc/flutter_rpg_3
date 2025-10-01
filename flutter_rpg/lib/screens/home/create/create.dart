@@ -3,10 +3,12 @@ import 'package:flutter_rpg/models/character.dart';
 import 'package:flutter_rpg/models/vocation.dart';
 import 'package:flutter_rpg/screens/home/create/vocation_card.dart';
 import 'package:flutter_rpg/screens/home/home.dart';
+import 'package:flutter_rpg/services/character_store.dart';
 import 'package:flutter_rpg/shared/styled_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
+import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
 // Implement UUID
@@ -45,7 +47,7 @@ class _CreateState extends State<CreateScreen> {
             actions: [
               StyledButton(
                   onPressed: () {
-                    // pop the alertbox from the stack
+                    // pop the alert box from the stack
                     Navigator.pop(ctx);
                   },
                   child: StyledHeading('Close'))
@@ -67,7 +69,7 @@ class _CreateState extends State<CreateScreen> {
             actions: [
               StyledButton(
                   onPressed: () {
-                    // pop the alertbox from the stack
+                    // pop the alert box from the stack
                     Navigator.pop(ctx);
                   },
                   child: StyledHeading('Close'))
@@ -78,8 +80,9 @@ class _CreateState extends State<CreateScreen> {
       );
       return;
     }
-    // Add created character to list
-    characters.add(
+
+    // Provider to add new characters to CharacterStore
+    Provider.of<CharacterStore>(context, listen: false).addCharacter(
       Character(
         name: _nameController.text.trim(),
         slogan: _sloganController.text.trim(),
@@ -87,6 +90,7 @@ class _CreateState extends State<CreateScreen> {
         id: uuid.v4(),
       ),
     );
+
     // Navigate back to home screen
     Navigator.push(
         context,
@@ -194,7 +198,10 @@ class _CreateState extends State<CreateScreen> {
               ),
               SizedBox(height: 30),
               Center(
-                child: StyledButton(onPressed: handleSubmit, child: StyledHeading('Create Character')),
+                child: StyledButton(
+                  onPressed: handleSubmit,
+                  child: StyledHeading('Create Character'),
+                ),
               ),
             ],
           ),

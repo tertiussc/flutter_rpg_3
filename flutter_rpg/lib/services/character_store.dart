@@ -13,4 +13,16 @@ class CharacterStore extends ChangeNotifier {
 
   // getter for the private data
   get characters => _characters;
+
+  // Add character
+  void addCharacter(Character character) {
+    _characters.add(character);
+    notifyListeners();
+  }
+
+  // Save (update) character
+
+  // Remove character
+
+  // Initially fetch character
 }
