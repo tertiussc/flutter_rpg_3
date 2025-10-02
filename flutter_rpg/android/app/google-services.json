@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "70681368535",
+    "project_id": "flutterrpg-dd692",
+    "storage_bucket": "flutterrpg-dd692.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70681368535:android:f0f4e18db6f6466c471d92",
+        "android_client_info": {
+          "package_name": "com.example.flutter_rpg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1UHbG_QAV-V6905fPcDb3T0jybrzcc_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
