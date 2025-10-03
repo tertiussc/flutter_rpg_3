@@ -1,3 +1,5 @@
+import 'package:flutter/rendering.dart';
+
 mixin Stats {
   int _points = 10;
   int _health = 10;
@@ -59,5 +61,14 @@ mixin Stats {
       _skill--;
       _points++;
     }
+  }
+
+  // set stats to normal for firestore
+  void setStats({required int points, required Map<String, dynamic> stats}) {
+    _points = points;
+    _health = stats['health'];
+    _attack = stats['attack'];
+    _defence = stats['defence'];
+    _skill = stats['skill'];
   }
 }
