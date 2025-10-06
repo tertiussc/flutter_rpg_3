@@ -30,4 +30,7 @@ class FireStoreService {
   }
 
 // Delete characters
+  static Future<void> deleteCharacter(Character character) async {
+    await ref.doc(character.id).delete();
+  }
 }
