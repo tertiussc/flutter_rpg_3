@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rpg/models/character.dart';
 import 'package:flutter_rpg/models/vocation.dart';
+import 'package:flutter_rpg/services/firestore_services.dart';
 
 class CharacterStore extends ChangeNotifier {
   // Import some dummy data for now
@@ -16,6 +17,9 @@ class CharacterStore extends ChangeNotifier {
 
   // Add character
   void addCharacter(Character character) {
+    // Call firestore service to add character to firestore
+    FireStoreService.addCharacter(character);
+    // Update Character state in the application
     _characters.add(character);
     notifyListeners();
   }
