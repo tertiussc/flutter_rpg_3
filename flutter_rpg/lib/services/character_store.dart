@@ -6,10 +6,12 @@ import 'package:flutter_rpg/services/firestore_services.dart';
 class CharacterStore extends ChangeNotifier {
   // Import some dummy data for now
   final List<Character> _characters = [
-    Character(name: 'Klara', slogan: 'Kapumf!', vocation: Vocation.wizard, id: '1'),
-    Character(name: 'Jonny', slogan: 'Light me up...', vocation: Vocation.junkie, id: '2'),
-    Character(name: 'Crimson', slogan: 'FIre in the hole!', vocation: Vocation.raider, id: '3'),
-    Character(name: 'Shaun', slogan: 'Alright then gang.', vocation: Vocation.ninja, id: '4'),
+    // Character(name: 'Klara', slogan: 'Kapumf!', vocation: Vocation.wizard, id: '1'),
+    // Character(name: 'Jonny', slogan: 'Light me up...', vocation: Vocation.junkie, id: '2'),
+    // Character(name: 'Crimson', slogan: 'FIre in the hole!', vocation: Vocation.raider, id: '3'),
+    // Character(name: 'Shaun', slogan: 'Alright then gang.', vocation: Vocation.ninja, id: '4'),
+
+    // Actual data from the DB
   ];
 
   // getter for the private data
@@ -29,4 +31,15 @@ class CharacterStore extends ChangeNotifier {
   // Remove character
 
   // Initially fetch character
+  void fetchCharacterOnce() async {
+    if (characters.length == 0) {
+      // Call method to retrieve the snapshot from the DB
+      final snapshot = await FireStoreService.getCharactersOnce();
+      // Process the snapshot data into a list
+      for (var doc in snapshot.docs) {
+        _characters.add(doc.data());
+      }
+      notifyListeners();
+    }
+  }
 }

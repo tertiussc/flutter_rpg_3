@@ -11,10 +11,13 @@ class FireStoreService {
   static Future<void> addCharacter(Character character) async {
     await ref.doc(character.id).set(character);
   }
-}
 
 // Read/Get characters
+  static Future<QuerySnapshot<Character>> getCharactersOnce() {
+    return ref.get();
+  }
 
 // Update characters
 
 // Delete characters
+}
